@@ -1,0 +1,26 @@
+server:
+  port: 8081
+  error:
+    include-message: always
+# Configuración de Spring
+spring:
+  flyway:
+    enabled: true
+    baselineVersion: 1
+    locations: classpath:db/migration
+    sqlMigrationSuffixes: .sql
+    baselineOnMigrate: true
+    sqlMigrationPrefix: V
+    schemas: public
+  datasource:
+    url: jdbc:postgresql://127.0.0.1:5432/postgres?currentSchema=neo_system
+    username: postgres
+    password: 0107261448
+    driverClassName: org.postgresql.Driver
+    hikari:
+     maximum-pool-size: 10
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
