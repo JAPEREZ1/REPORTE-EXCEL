@@ -118,4 +118,7 @@ public class PersonaExportService {
     private boolean isEmpty(String value) {
         return value == null || value.trim().isEmpty();
     }
+    public List<Persona> getAllPersonas() {
+        return personaRepository.findAll();
+    }
 }

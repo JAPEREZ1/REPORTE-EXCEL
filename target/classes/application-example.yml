@@ -1,0 +1,26 @@
+server:
+  port: 8080
+  error:
+    include-message: always
+# Configuración de Spring
+spring:
+  flyway:
+    enabled: true
+    baselineVersion: 1
+    locations: classpath:db/migration
+    sqlMigrationSuffixes: .sql
+    baselineOnMigrate: true
+    sqlMigrationPrefix: V
+    schemas: ejemplo_schema
+  datasource:
+    url: jdbc:postgresql://127.0.0.1:5432/ejemplo_db?currentSchema=ejemplo_schema
+    username: username
+    password: password
+    driverClassName: org.postgresql.Driver
+    hikari:
+     maximum-pool-size: 5
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
